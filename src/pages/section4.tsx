@@ -1,85 +1,68 @@
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
+import React, {useCallback, useEffect, useRef} from "react";
+import {sectionCode2} from "../data/section2/code";
+import {sectionCode4} from "../data/section4/section4";
+import AccessTimeRoundedIcon from "@mui/icons-material/AccessTimeRounded";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import AccordionDetails from "@mui/material/AccordionDetails";
-import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import AccessTimeRoundedIcon from '@mui/icons-material/AccessTimeRounded';
-import NoteAltRoundedIcon from '@mui/icons-material/NoteAltRounded';
+import NoteAltRoundedIcon from "@mui/icons-material/NoteAltRounded";
+import {TextField} from "@mui/material";
+import {Link} from "react-router-dom";
+import {PrimeBtn, SecoBtn} from "../style/components";
+import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 import KeyboardArrowRightRoundedIcon from "@mui/icons-material/KeyboardArrowRightRounded";
 
-import {Link} from "react-router-dom";
-import {sectionCode1} from "../data/section1/code";
-import {PrimeBtn, SecoBtn} from "../style/components";
-import {TextField} from "@mui/material";
-import React, {useCallback, useEffect, useRef} from "react";
-
-const Section1 = () => {
+const Section4 = () => {
     const inputRef = useRef<any>()
 
     const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
         inputRef.current.value = e.target.value
     }, [inputRef])
 
-    useEffect(()=>{
+    useEffect(() => {
         return () => {
-            window.scrollTo({top:0,behavior:'smooth'})
+            window.scrollTo({top: 0, behavior: 'smooth'})
         }
-    },[])
+    }, [])
+
     return (
         <Grid container>
             <Grid item xs={12} p={2}>
                 <Typography color={'error.main'} fontSize={30} fontWeight={'bold'}>
-                    Overview
+                    UseMutation
                 </Typography>
                 <Grid pl={2}>
                     <Typography fontWeight={'bold'}>
-                        What is react query?
+                        What is useMutation?
                     </Typography>
                     <Typography>
-                        React query is data fetching library
+                        React Query hook for Post data
                     </Typography>
                     <Typography fontWeight={'bold'}>
-                        What is World without react query?
+                        What are important keys?
                     </Typography>
                     <Typography>
-                        we must use useState and useEffect Hook but this way bad for
-                        performance and all developer confused, we use state and effect for client side app and we must
-                        use react query for server app and all async application
+                        mutationFn: (variables: TVariables) arrowF Promise TData
+                    </Typography>
+                    <Typography>
+                        onSuccess: (data: TData, variables: TVariables, context?: TContext) arrowF Promise unknown |
+                        unknown
+                    </Typography>
+                    <Typography>
+                        oonError: (err: TError, variables: TVariables, context?: TContext) arrowF Promise unknown |
+                        unknown
                     </Typography>
                     <Typography fontWeight={'bold'}>
-                        What is benefit of the react query?
-                    </Typography>
-                    <Typography>
-                        Clean
-                    </Typography>
-                    <Typography>
-                        Memory performance
-                    </Typography>
-                    <Typography>
-                        Customizable
-                    </Typography>
-                    <Typography>
-                        Do a lot of works without state and effect
-                    </Typography>
-                    <Typography>
-                        Good for multiple request
-                    </Typography>
-                    <Typography>
-                        Ez to learn
-                    </Typography>
-                    <Typography fontWeight={'bold'}>
-                        Sample Code
+                        Sample code
                     </Typography>
                     <Grid sx={{display: {xs: 'none', md: 'flex'}}} bgcolor={'#F4F7F9'} borderRadius={4} p={2} mt={2}>
                         <Typography fontFamily={'Ubuntu'} component={'pre'}>
-                            {sectionCode1}
+                            {sectionCode4}
                         </Typography>
                     </Grid>
-                    <Typography fontWeight={'bold'} my={3}>
-                        if you dont understand you don't worry we check all code in next sections 😅
-                    </Typography>
                 </Grid>
             </Grid>
             <Grid item xs={12} p={2}>
@@ -92,14 +75,14 @@ const Section1 = () => {
                 <Grid p={2}>
                     <Accordion>
                         <AccordionSummary expandIcon={<ExpandMoreIcon/>} id="panel1a-header">
-                            <Typography>Exercise 1</Typography>
+                            <Typography>Exercise 3</Typography>
                         </AccordionSummary>
                         <AccordionDetails>
                             <Typography>
-                                create component and call one api and handle loading and error with state and effect
+                                Post one api with useMutation
                             </Typography>
                             <Typography>
-                                Time: 20min
+                                Time: 10min
                             </Typography>
                         </AccordionDetails>
                     </Accordion>
@@ -125,10 +108,10 @@ const Section1 = () => {
                         </Typography>
                     </PrimeBtn>
                 </Link>
-                <Link to={'/course/section2'}>
+                <Link to={'/'}>
                     <SecoBtn variant={'contained'}>
                         <Typography fontSize={16} mr={1}>
-                            NEXT
+                            Soon
                         </Typography>
                         <KeyboardArrowRightRoundedIcon/>
                     </SecoBtn>
@@ -138,4 +121,4 @@ const Section1 = () => {
     )
 }
 
-export default Section1
+export default Section4
